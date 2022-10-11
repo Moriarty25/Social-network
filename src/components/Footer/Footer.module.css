@@ -1,0 +1,25 @@
+.footer {
+  grid-area: footer;
+  /* margin-left: 150px; */
+  color: #e5f9ff;
+  display: flex;
+  justify-content: center;
+  /* width: 100%; */
+  height: 300px;
+  /* background-image: url("https://nuxtjs.org/img/home/home_footer.svg");
+  background: linear-gradient(#9A5044, #E8D9A9) fixed; */
+  transition: all 6000ms ease-in-out;
+}
+
+.footer:hover {
+  /* transition: all 6000ms ease-in-out; */
+  background: #e8d9a9;
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  background-image: url("https://nuxtjs.org/img/home/home_footer.svg");
+}

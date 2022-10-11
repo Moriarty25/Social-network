@@ -1,0 +1,12 @@
+.app-wrapper {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "sidebar content nav"
+    "footer footer footer";
+  grid-template-rows: 3fr 20fr 10fr;
+  grid-template-columns: 1fr 10fr 2fr;
+  /* gap: 10px; */
+  font-family: topaz, "Lucida Console", monospace, Monaco;
+  color: #fff;
+}

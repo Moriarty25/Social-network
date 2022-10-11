@@ -1,0 +1,22 @@
+
+.creating_post {
+    margin-top: 50px;
+    border: solid 5px rosybrown;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    padding: 5px;
+}
+
+.avatar {
+    width: 50px;
+}
+
+.newPost {
+    background-color: rgb(92, 92, 90);
+    border-radius: 5px;
+    padding-left: 30px;
+}
+
+/* .newPost::placeholder {
+    padding-left: 30px;
+} */

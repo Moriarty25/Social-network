@@ -1,0 +1,28 @@
+.post__wrap {
+display: grid;
+grid-template-areas: 
+    "avatar name"
+    "avatar post";
+grid-template-columns: 80px 2fr;
+margin-top: 50px;
+padding: 5px;
+background-color: #568c9c;
+margin: 20px;
+border-radius: 5px;
+}
+.avatar {
+    width: 50px;
+    grid-area: avatar;
+}
+
+.name {
+    grid-area: name;
+}
+
+.content {
+    grid-area: post;
+}
+
+.actions{
+    
+}
