@@ -1,0 +1,9 @@
+.actions {
+    grid-area: actions;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* justify-items: center; */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}

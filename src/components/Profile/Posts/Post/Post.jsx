@@ -1,7 +1,7 @@
 import { Actions } from "./Actions/Actions";
 import styles from "./Post.module.css";
 
-export const Post = () => {
+export const Post = (props) => {
   return (
     <div className={styles.post__wrap}>
       <img
@@ -10,8 +10,8 @@ export const Post = () => {
         className={styles.avatar}
       />
       <div className={styles.name}>Cheburashka</div>
-      <div className={styles.content}>Hi!</div>
-      <Actions/>
+      <div className={styles.content}>{props.message}</div>
+      <Actions amountLikes = {props.amountLikes}/> 
     </div>
   );
 };

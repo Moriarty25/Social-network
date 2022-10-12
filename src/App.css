@@ -9,4 +9,12 @@
   /* gap: 10px; */
   font-family: topaz, "Lucida Console", monospace, Monaco;
   color: #fff;
+ 
+}
+
+.app-wrapper__content {
+    grid-area: content;
+    background-color: #000038;
+    color: #e5f9ff;
+    padding: 20px;
 }
