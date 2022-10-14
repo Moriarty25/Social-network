@@ -1,0 +1,10 @@
+.settings{
+    height: 100%;
+    width: 500px;
+    background-color:rgb(79, 97, 52);
+}
+
+.settings img {
+    margin-top: 50px;
+    width: 100px;
+}

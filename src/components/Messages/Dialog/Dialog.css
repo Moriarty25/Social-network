@@ -1,0 +1,41 @@
+.dialog {
+  display: grid;
+  grid-template-areas:
+    "avatar title"
+    "avatar content";
+  grid-template-columns: 1fr 10fr;
+  column-gap: 20px;
+  border: solid 1px rgba(6, 2, 75, 0.978);
+  padding: 10px;
+  border-radius: 10px;
+  background-color:rgb(6, 2, 75);
+  margin-top: 5px;
+  /* background: #999 url('https://i.ibb.co/rb2TWXL/bgbtn.png') center / cover;
+	image-rendering: pixelated; */
+  /* классный стиль из майнкрафта */
+}
+
+/* .dialog--active {
+    border-color: orange;
+} */
+.dialog:hover {
+  background-color:  rgba(6, 1, 89, 0.9);
+}
+
+.dialog__avatar {
+  grid-area: avatar;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(1, 113, 98);
+  /* border-radius: 50%; */
+}
+
+.dialog__title {
+    font-size: 18px;
+}
+
+.dialog__content {
+  grid-area: content;
+  font-size: 12px;
+  opacity: 0.7;
+}
