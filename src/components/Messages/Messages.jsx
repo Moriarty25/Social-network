@@ -1,48 +1,59 @@
-import { NavLink } from "react-router-dom";
+import "react-router-dom";
 import { Dialog } from "./Dialog/Dialog";
 import { Message } from "./Message/Message";
-import style from "./Messages.css";
+import "./Messages.css";
 
 export const Messages = () => {
+  let dialogs = [
+    { id: 1, name: "Shane Wright", content: "Привет!" },
+    { id: 2, name: "Yuriy Surikat", content: "Canada" },
+    { id: 3, name: "Petr Smart", content: "Good day!!!" },
+    { id: 4, name: "Igor security", content: "ahahahha" },
+    { id: 5, name: "Obi-Wan Kenobi", content: "angree birfs" },
+    { id: 6, name: "John Snow", content: "What's up?" },
+    { id: 7, name: "Dawson Mercer", content: "Are you sure?" },
+  ];
+
+  let messages = [
+    { id: 1, message: "Houston, State Texas" },
+    { id: 2, message: "Seul" },
+    { id: 3, message: "Boston, lalala" },
+    { id: 4, message: "california, San-Jose" },
+    { id: 5, message: "Hi !" },
+  ];
+
+  let dialogElements = dialogs.map((dialog) => (
+    <Dialog
+      key={dialog.id}
+      name={dialog.name}
+      id={dialog.id}
+      content={dialog.content}
+    />
+  ));
+
+  let messageElements = messages.map((message) => (
+    <Message key={message.id} message={message.message} />
+  ));
+
+  function onSend() {
+    messages.push({ id: messages[messages.length - 1].id + 1, message: "New" });
+  }
+
   return (
     <div className="messages__wrapper">
       <div className="dialogs">
-        <div className="dialogs__header">My dialogs</div>
-        <NavLink to="1">
-          <Dialog title="Shane Wright" content="Привет!!!" />
-        </NavLink>
-        <NavLink to="2">
-          <Dialog title="Yuriy Surikat" content="Canada" />
-        </NavLink>
-        <NavLink to="3">
-          <Dialog title="Petr Smart" content="Good day!!!" />
-        </NavLink>
-        <NavLink to="4">
-          <Dialog title="Igor security" content="ahahahha" />
-        </NavLink>
-        <NavLink to="5">
-          <Dialog title="Obi-Wan Kenobi" content="angree birfs" />
-        </NavLink>
-        <NavLink to="6">
-          <Dialog title="John Snow" content="What's up?" />
-        </NavLink>
-        <NavLink to="7">
-          <Dialog title="Dawson Mercer" content="Are you sure?" />
-        </NavLink>
+        <div className="dialogs__header">My dialogs ...</div>
+        {dialogElements}
       </div>
       <div className="chat">
-        <div className="chat__title">Yuriy Surikat</div>
-        <div className="chat__wrapper">
-          <Message text="Houston, State Texas" />
-          <Message text="Seul" />
-          <Message text="Boston, lalala" />
-          <Message text="california, San-Jose" />
-          <Message text="Hi !" />
-        </div>
+        <div className="chat__name">Yuriy Surikat</div>
+        <div className="chat__wrapper">{messageElements}</div>
         <div className="chat__footer">
           <div className="chat__attach">S</div>
           <input className="chat__input" placeholder="Сообщение"></input>
-          <button className="chat__btn-send">Send</button>
+          <button className="chat__btn-send" onClick={onSend}>
+            Send
+          </button>
         </div>
       </div>
     </div>

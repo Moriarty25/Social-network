@@ -1,42 +1,4 @@
 
-.header {
-  display: grid;
-  grid-template-areas:
-    "avatar  name"
-    "avatar info";
-  grid-template-columns: 1fr 5fr;
-  grid-template-rows: 1fr 180px;
-}
-.avatar__img {
-  background-image: url("/public/logo192.png");
-  animation: rotate 30s linear forwards infinite;
-  height: 100%;
-}
-
-.avatar {
-  grid-area: avatar;
-  
-  /* animation: rotate 30s linear forwards infinite; */
-}
-
-@keyframes rotate{
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.name {
-  grid-area: name;
-  padding-left: 50px;
-}
-
-.info {
-  grid-area: info;
-  padding-left: 50px;
-}
-
 .satodsan_uvemopag h1 {
   width: 272px;
   overflow: hidden;
