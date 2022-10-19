@@ -1,3 +1,37 @@
 .sidebar_left {
-    grid-area: sidebar;
-  }
+  grid-area: sidebar;
+  cursor:default;
+  user-select: none;
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+  letter-spacing: 3rem;
+  font-weight: 900;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  /* font-family: Golos; */
+  font-size: 48px;
+  /* padding: 20px 20px; */
+  /* background: linear-gradient(180deg,#5982fb,#7f00ff 50%,#68076b); */
+  padding-right: 10px;
+  padding-left: 20px;
+  padding-top: 30px;
+  text-align: right;
+  /* text-decoration: underline 1px orange; */
+  background: linear-gradient(
+    0deg,
+    rgb(6, 2, 75),
+    50%,
+    rgb(16, 0, 154),
+    rgba(6, 1, 89, 0.9)
+  );
+  background: linear-gradient(90deg, orange, #003543 20%);
+}
+
+/*     background: linear-gradient(180deg,#fb9359,#7f00ff 50%,#9330aa); */
+
+/* .sidebar_left:hover {
+  position: relative;
+  z-index: -10;
+  transform: rotate(180deg) translateX(-80px);
+  transition: transform ease-out 2s;
+} */

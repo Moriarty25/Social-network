@@ -1,0 +1,51 @@
+.chat__message {
+    position: relative;
+    padding: 5px;
+    background-color: rgb(20, 20, 116);
+    border: sold 2px rgba(20, 20, 116, 0.76) ;
+    border-radius: 1px;
+    box-shadow: 5px 5px 2px 1px rgba(0,0,0,0.75);
+    max-width: 75%;
+    min-width: 10%;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.chat__message::after {
+    position: absolute;
+    right: 0px;
+    bottom: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    content: "14:28";
+    font-size: 10px;
+    color: rgba(219, 217, 217, 0.76);
+}
+
+.chat__message--me {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background:linear-gradient(-90deg, #003543,40%, rgb(136, 136, 155)) ;
+    padding-right: 20px;
+    text-align: right;
+    box-shadow: 5px -5px 2px 1px rgba(0,0,0,0.75);
+}
+
+.chat__message--me::after {
+    position: relative;
+    left: 10px;
+    bottom: -3px;
+    /* padding-left: 10px; */
+    padding-right: 0;
+    content: "14:30";
+    font-size: 10px;
+    color: rgba(219, 217, 217, 0.76);
+}
+
+/* .message__time {
+    font-size: 10px;
+    color: rgba(219, 217, 217, 0.76);
+} */
