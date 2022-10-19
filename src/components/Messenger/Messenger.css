@@ -52,6 +52,7 @@
 }
 
 .chat__wrapper {
+  position: relative;
   margin: 20px;
   margin-top: 0;
   background: linear-gradient(#1f3b37, #426560);
