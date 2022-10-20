@@ -1,5 +1,6 @@
 
 .creating_post {
+    grid-area: "newPost";
     margin-top: 50px;
     border: solid 5px rosybrown;
     display: grid;

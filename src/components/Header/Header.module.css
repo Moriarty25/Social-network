@@ -1,8 +1,18 @@
 .header {
   grid-area: header;
   background-color: #003543;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
 }
 
 .header img {
   width: 80px;
+  opacity: 0;
 }
+
+.kasper {
+  fill: currentColor;
+  color:rgba(249, 249, 249, 0.581);
+  color: var(--second-color);
+}
+
