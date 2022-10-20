@@ -8,6 +8,14 @@ grid-template-columns: 80px 2fr;
 margin-top: 50px;
 padding: 5px;
 background-color: #568c9c;
+background-image: linear-gradient(
+    to right bottom,
+    #236589,
+    #004f7f,
+    #003a72,
+    #002363,
+    #06094f
+  );
 margin: 20px;
 border-radius: 5px;
 }

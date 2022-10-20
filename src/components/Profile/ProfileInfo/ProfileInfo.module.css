@@ -1,20 +1,29 @@
 .header {
-    display: grid;
+    /* display: grid;
     grid-template-areas:
       "avatar  name"
       "avatar info";
     grid-template-columns: 1fr 5fr;
-    grid-template-rows: 1fr 180px;
+    grid-template-rows: 1fr 180px; */
+    grid-area: Pinfo;
+
   }
   .avatar__img {
     background-image: url("/public/logo192.png");
     animation: rotate 30s linear forwards infinite;
     height: 100%;
   }
+
+
   
   .avatar {
+    /* position: absolute;
+    top: -50px; */
+    border: solid 5px var(--second-bg-color);
+    border-radius: 10px;
     grid-area: avatar;
-    
+    height: 300px;
+  
     /* animation: rotate 30s linear forwards infinite; */
   }
   
@@ -28,11 +37,40 @@
   }
   .name {
     grid-area: name;
-    padding-left: 50px;
+    margin-top:  15px;
+    margin-bottom: 10px;
+    font-size: 50px;
+
+    
+  }
+  .name::first-letter {
+    color: var(--second-color);
+  }
+
+  .header:nth-child(n) {
+    font-size: 14px;
+  }
+
+  .nickname {
+    margin-bottom: 20px;
+    color: var(--second-color);
+    font-weight: bold;
   }
   
   .info {
     grid-area: info;
-    padding-left: 50px;
+    margin-bottom: 20px;
+  }
+
+  .job {
+    margin-bottom: 20px;
+  }
+
+  .city {
+    margin-bottom: 20px;
+  }
+
+  .emal {
+    margin-bottom: 20px;
   }
   

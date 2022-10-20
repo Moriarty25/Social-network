@@ -26,3 +26,18 @@
     border-color: orange;
   }
 }
+
+.content {
+  position: relative;
+  display: grid;
+  grid-template-areas:  
+  "Pinfo header"
+  "Pinfo newPost"
+  "Pinfo posts" ;
+  grid-template-columns: 1fr 3fr;
+
+}
+
+.post__wrapper {
+  grid-area: "posts";
+}

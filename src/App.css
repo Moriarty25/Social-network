@@ -19,3 +19,8 @@
     color: #e5f9ff;
     padding: 20px;
 }
+
+#root {
+  --second-color: #61dafb;
+  --second-bg-color:  rgba(6, 1, 89, 0.9);
+}
