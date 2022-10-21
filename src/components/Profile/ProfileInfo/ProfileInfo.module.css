@@ -1,76 +1,71 @@
 .header {
-    /* display: grid;
+  /* display: grid;
     grid-template-areas:
       "avatar  name"
       "avatar info";
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr 180px; */
-    grid-area: Pinfo;
+  grid-area: Pinfo;
 
-  }
-  .avatar__img {
-    background-image: url("/public/logo192.png");
-    animation: rotate 30s linear forwards infinite;
-    height: 100%;
-  }
+}
+.avatar__img {
+  background-image: url("/public/logo192.png");
+  animation: rotate 30s linear forwards infinite;
+  height: 100%;
+}
 
+.avatar {
+  position: relative;
+    top: -150px;
+  border: solid 5px var(--second-bg-color);
+  border-radius: 10px;
+  grid-area: avatar;
+  height: 300px;
 
-  
-  .avatar {
-    /* position: absolute;
-    top: -50px; */
-    border: solid 5px var(--second-bg-color);
-    border-radius: 10px;
-    grid-area: avatar;
-    height: 300px;
-  
-    /* animation: rotate 30s linear forwards infinite; */
-  }
-  
-  @keyframes rotate{
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  .name {
-    grid-area: name;
-    margin-top:  15px;
-    margin-bottom: 10px;
-    font-size: 50px;
+  /* animation: rotate 30s linear forwards infinite; */
+}
 
-    
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
   }
-  .name::first-letter {
-    color: var(--second-color);
+  100% {
+    transform: rotate(360deg);
   }
+}
+.name {
+  grid-area: name;
+  margin-top: -125px;
+  margin-bottom: 10px;
+  font-size: 50px;
+}
+.name::first-letter {
+  color: var(--second-color);
+}
 
-  .header:nth-child(n) {
-    font-size: 14px;
-  }
+.header:nth-child(n) {
+  font-size: 14px;
+}
 
-  .nickname {
-    margin-bottom: 20px;
-    color: var(--second-color);
-    font-weight: bold;
-  }
-  
-  .info {
-    grid-area: info;
-    margin-bottom: 20px;
-  }
+.nickname {
+  margin-bottom: 20px;
+  color: var(--second-color);
+  font-weight: bold;
+}
 
-  .job {
-    margin-bottom: 20px;
-  }
+.info {
+  grid-area: info;
+  margin-bottom: 20px;
+}
 
-  .city {
-    margin-bottom: 20px;
-  }
+.job {
+  margin-bottom: 20px;
+}
 
-  .emal {
-    margin-bottom: 20px;
-  }
-  
+.city {
+  margin-bottom: 20px;
+}
+
+.emal {
+  margin-bottom: 20px;
+}

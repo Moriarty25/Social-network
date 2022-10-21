@@ -1,5 +1,5 @@
 .header {
-    grid-area: "header";
+    grid-area: header;
     /* display: grid;
     grid-template-columns: 1fr 1fr 1fr; */
     display: flex;
@@ -9,7 +9,9 @@
     padding: 20px;
     padding-bottom:0 ;
     width: 100%;
-    
+    /* margin-left: 20px;
+    margin-right: 20px; */
+    margin-top: 0;
 }
 
 .header div:nth-child(3) {

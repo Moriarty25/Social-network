@@ -15,7 +15,7 @@ import { Settings } from "./components/Settings/Settings";
 
 const App = (props) => {
   const { profilePage, messengerPage } = props.state;
-  
+  const {addPost} = props.addPost;
 
   // const { posts, dialogs, messages } = props.state;
 
@@ -27,7 +27,7 @@ const App = (props) => {
         <SidebarLeft />
         <div className="app-wrapper__content">
           <Routes>
-            <Route path="/profile" element={<Profile state={profilePage} />} />
+            <Route path="/profile" element={<Profile state={profilePage} addPost={addPost}/>} />
             <Route
               path="/messages/*"
               element={<Messenger state={messengerPage} />}
