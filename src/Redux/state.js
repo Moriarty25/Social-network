@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 let state = {
   profilePage: {
     posts: [
@@ -9,6 +11,7 @@ let state = {
       { message: "", amountLikes: 3 },
       { message: "", amountLikes: 32 },
     ],
+    newPostText: 'it-camasutra.com' ,
     friendItems: [
       {
         id: 1,
@@ -54,16 +57,42 @@ let state = {
       { id: 4, message: "california, San-Jose" },
       { id: 5, message: "Hi !" },
     ],
+    newMessageText: '' 
   },
 };
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
   let newPost = {
-    id:8,
-    message: "#go Stars go!", 
+    id: 8,
+    message: state.profilePage.newPostText, 
     amountLikes: "0"
   }
-  state.profilePage.posts.push(newPost)
+  state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = '';
+  rerenderEntireTree(state)
+};
+
+export let updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
+  rerenderEntireTree(state)
+};
+
+// messanger
+export let addMessage = () => {
+  let newMessage = {
+    id: 0,
+    message: state.messengerPage.newMessageText, 
+  }
+  if (state.messengerPage.newMessageText !== '') {
+    state.messengerPage.messages.push(newMessage);
+    state.messengerPage.newMessageText = '';
+    rerenderEntireTree(state)
+  }
+};
+
+export let updateNewMessageText = (newText) => {
+  state.messengerPage.newMessageText = newText;
+  rerenderEntireTree(state)
 };
 
 

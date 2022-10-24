@@ -4,10 +4,10 @@ import style from "./Profile.module.css";
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
 import { ProfileHeader } from "./ProfileHeader/ProfileHeader";
 
-export const Profile = ({ state, addPost}) => {
-  const { posts, friendItems } = state;
+export const Profile = ({ state, addPost, updateNewPostText }) => {
+  const { posts, newPostText, friendItems } = state;
 
-  let postsElements = posts.map((post) => (
+  let postElements = posts.map((post) => (
     <Post message={post.message} amountLikes={post.amountLikes} />
   ));
   return (
@@ -17,9 +17,13 @@ export const Profile = ({ state, addPost}) => {
       {/* <div className={style.satodsan_uvemopag}>
         <h1>Эффект печатающегося текста</h1>
       </div> */}
-      <NewPost addPost={addPost}/>
+      <NewPost
+        addPost={addPost}
+        newPostText={newPostText}
+        updateNewPostText={updateNewPostText}
+      />
 
-      <div className={style.post__wrapper}>{postsElements}</div>
+      <div className={style.post__wrapper}>{postElements}</div>
     </div>
   );
 };

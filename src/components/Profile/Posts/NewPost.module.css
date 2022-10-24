@@ -1,28 +1,26 @@
-
 .creating_post {
-    grid-area: newPost;
-    margin-top: 20px;
-    /* border: dotted 5px var(--second-color); */
-    display: grid;
-    grid-template-columns:  3fr 1fr;
-    grid-column-gap: 20px;
-    padding: 5px;
-    /* background-color: var(--second-bg-color); */
-    margin-left: 20px;
-    margin-right: 20px;
-    height: 50px;
-
+  grid-area: newPost;
+  margin-top: 20px;
+  /* border: dotted 5px var(--second-color); */
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-column-gap: 20px;
+  padding: 5px;
+  /* background-color: var(--dark-blue); */
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 50px;
 }
 
 .avatar {
-    width: 50px;
+  width: 50px;
 }
 
 .newPost {
-    background-color: var(--input-color);
-    border-radius: 5px;
-    padding-left: 30px;
-    /* margin-right: 10px; */
+  background-color: var(--input-color);
+  border-radius: 5px;
+  padding-left: 30px;
+  /* margin-right: 10px; */
 }
 
 .newPost::placeholder {
@@ -30,23 +28,23 @@
 }
 
 .submit__btn {
-    background-color: rgb(119, 118, 118);
-    padding: 5px;
-    box-shadow: 0px 0px 10px 15px rgba(62, 77, 88, 0) inset, inset 2px 1px #fff7,
-      inset -1px -3px #0006;
-    border-radius: 5px;
-    border: 3px outset #a4a195;
-    background: #6d6c6c;
-    /* color: #fff; */
-    /* background: linear-gradient(to top, #272525, #777373); */
-  }
-  .submit__btn:hover {
-    opacity: 0.9;
-  }
-  
-  .submit__btn:active {
-    /* opacity: 0.9; */
-    transform: translateY(1px);
-    transition: transform ease-out 250ms;
-    box-shadow: inset -2px -4px #0006, inset 2px 2px #fff7;
-  }
+  background-color: rgb(119, 118, 118);
+  padding: 5px;
+  box-shadow: 0px 0px 10px 15px rgba(62, 77, 88, 0) inset, inset 2px 1px #fff7,
+    inset -1px -3px #0006;
+  border-radius: 5px;
+  border: 3px outset #a4a195;
+  background: #6d6c6c;
+  /* color: #fff; */
+  /* background: linear-gradient(to top, #272525, #777373); */
+}
+.submit__btn:hover {
+  opacity: 0.9;
+}
+
+.submit__btn:active {
+  /* opacity: 0.9; */
+  transform: translateY(1px);
+  transition: transform ease-out 250ms;
+  box-shadow: inset -2px -4px #0006, inset 2px 2px #fff7;
+}

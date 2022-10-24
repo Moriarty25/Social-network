@@ -1,14 +1,14 @@
 .post__wrap {
-display: grid;
-grid-template-areas: 
+  display: grid;
+  grid-template-areas:
     "avatar name"
     "avatar post"
     "actions actions";
-grid-template-columns: 80px 2fr;
-margin-top: 50px;
-padding: 5px;
-background-color: var(--second-bg-color);
-background-image: linear-gradient(
+  grid-template-columns: 80px 2fr;
+  /* margin-top: 50px; */
+  padding: 5px;
+  background-color: var(--dark-blue);
+  background-image: linear-gradient(
     to right bottom,
     #236589,
     #004f7f,
@@ -16,22 +16,22 @@ background-image: linear-gradient(
     #002363,
     #06094f
   );
-margin: 20px;
-border-radius: 5px;
+  margin: 20px;
+  margin-bottom: 0;
+  border-radius: 5px;
 }
 .avatar {
-    width: 50px;
-    grid-area: avatar;
+  width: 50px;
+  grid-area: avatar;
 }
 
 .name {
-    grid-area: name;
+  grid-area: name;
 }
 
 .content {
-    grid-area: post;
+  grid-area: post;
 }
 
-.actions{
-
+.actions {
 }

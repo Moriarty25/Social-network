@@ -6,7 +6,6 @@
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr 180px; */
   grid-area: Pinfo;
-
 }
 .avatar__img {
   background-image: url("/public/logo192.png");
@@ -16,8 +15,8 @@
 
 .avatar {
   position: relative;
-    top: -150px;
-  border: solid 5px var(--second-bg-color);
+  top: -150px;
+  border: solid 5px var(--dark-blue);
   border-radius: 10px;
   grid-area: avatar;
   height: 300px;
