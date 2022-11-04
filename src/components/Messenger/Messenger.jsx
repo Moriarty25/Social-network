@@ -2,10 +2,11 @@ import "react-router-dom";
 import { Dialog } from "./Dialog/Dialog";
 import { Message } from "./Message/Message";
 import "./Messenger.css";
-import { Icon20Attach } from '@vkontakte/icons';
+import { Icon20Attach } from "@vkontakte/icons";
 import React from "react";
+import { addMessageActionCreator, updateNewMessageActionCreator } from "../../Redux/messenger-reducer";
 
-export const Messenger = ({addMessage, updateNewMessageText, state}) => {
+export const Messenger = ({ dispatch, state }) => {
   const { dialogs, messages, newMessageText } = state;
 
   let dialogElements = dialogs.map((dialog) => (
@@ -23,18 +24,16 @@ export const Messenger = ({addMessage, updateNewMessageText, state}) => {
 
   let newMessageElement = React.createRef();
 
- window.state = state
+  window.state = state;
 
   let onSend = () => {
-    addMessage()
-  
-
+    dispatch(addMessageActionCreator());
   };
 
   let onChange = () => {
-    let text = newMessageElement.current.value
-    updateNewMessageText(text);
-    
+    let text = newMessageElement.current.value;
+    dispatch(updateNewMessageActionCreator(text));
+    console.log(updateNewMessageActionCreator(text));
   };
   // function onSend() {
   //   messages.push({ id: messages[messages.length - 1].id + 1, message: "New" });
@@ -48,13 +47,24 @@ export const Messenger = ({addMessage, updateNewMessageText, state}) => {
       </div>
       <div className="chat">
         <div className="chat__name">Yuriy Surikat</div>
-        <div className="chat__wrapper">{messageElements}
-        <div className="chat__message chat__message--me">OTTAWA</div>
+        <div className="chat__wrapper">
+          {messageElements}
+          <div className="chat__message chat__message--me">OTTAWA</div>
         </div>
         <div className="chat__footer">
-          <button className="chat__attach"><Icon20Attach/></button>
-          <input className="chat__input" onChange={onChange} value={newMessageText} placeholder="Сообщение" ref={newMessageElement}></input>
-          <button onClick={onSend} className="chat__btn-send">Send</button>
+          <button className="chat__attach">
+            <Icon20Attach />
+          </button>
+          <input
+            className="chat__input"
+            onChange={onChange}
+            value={newMessageText}
+            placeholder="Сообщение"
+            ref={newMessageElement}
+          ></input>
+          <button onClick={onSend} className="chat__btn-send">
+            Send
+          </button>
         </div>
       </div>
     </div>

@@ -1,18 +1,32 @@
-import styles from "./NewPost.module.css";
 import React from "react";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../Redux/profile-reducer";
+import styles from "./NewPost.module.css";
 
-export const NewPost = ({ addPost, newPostText, updateNewPostText }) => {
+console.log(updateNewPostTextActionCreator)
+// function addPostActionCreator () {
+//   return {
+//     type: 'ADD-POST'
+//   }
+// }
+
+// function updateNEwPostTextActionCreator (text) {
+//   return {
+//     type: 'UPDATE-NEW-POST-TEXT',
+//     newText: text
+//   }
+// }
+
+export const NewPost = ({ dispatch, newPostText, updateNewPostText }) => {
   let newPostElement = React.createRef();
 
   let onSubmit = () => {
-    
-    addPost();
+    dispatch(addPostActionCreator());
    
   };
 
   let onChange = () => {
     let text = newPostElement.current.value;
-    updateNewPostText(text);
+    dispatch(updateNewPostTextActionCreator(text));
   };
 
   return (

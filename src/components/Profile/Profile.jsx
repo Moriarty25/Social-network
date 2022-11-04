@@ -4,7 +4,7 @@ import style from "./Profile.module.css";
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
 import { ProfileHeader } from "./ProfileHeader/ProfileHeader";
 
-export const Profile = ({ state, addPost, updateNewPostText }) => {
+export const Profile = ({ state, dispatch }) => {
   const { posts, newPostText, friendItems } = state;
 
   let postElements = posts.map((post) => (
@@ -17,12 +17,7 @@ export const Profile = ({ state, addPost, updateNewPostText }) => {
       {/* <div className={style.satodsan_uvemopag}>
         <h1>Эффект печатающегося текста</h1>
       </div> */}
-      <NewPost
-        addPost={addPost}
-        newPostText={newPostText}
-        updateNewPostText={updateNewPostText}
-      />
-
+      <NewPost newPostText={newPostText} dispatch={dispatch} />
       <div className={style.post__wrapper}>{postElements}</div>
     </div>
   );

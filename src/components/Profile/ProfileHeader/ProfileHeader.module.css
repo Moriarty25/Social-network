@@ -14,7 +14,22 @@
   margin-top: 0;
 }
 
-.header div:nth-child(3) {
+.header div:nth-child(n) {
   padding-bottom: 10px;
   border-bottom: solid 5px var(--second-color);
+}
+
+.header__item {
+  display: grid;
+  grid-column: 1fr 1fr;
+  justify-items: center;
+
+}
+
+/* .header__item span:nth-child(n) {
+  padding-top: 5px;
+} */
+
+.item__number {
+  padding-top: 10px;
 }

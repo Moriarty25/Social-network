@@ -13,7 +13,7 @@ import { Games } from "./components/Games/Games";
 import { Settings } from "./components/Settings/Settings";
 // import "./reset.css";
 
-const App = ({state, addPost, updateNewPostText, addMessage, updateNewMessageText}) => {
+const App = ({state, dispatch}) => {
   const { profilePage, messengerPage } = state;
   // const {addPost} = addPost;
   // const { posts, dialogs, messages } = props.state;
@@ -27,11 +27,11 @@ const App = ({state, addPost, updateNewPostText, addMessage, updateNewMessageTex
         <SidebarLeft />
         <div className="app-wrapper__content">
           <Routes>
-            <Route path="/profile" element={<Profile state={profilePage} addPost={addPost} updateNewPostText={updateNewPostText}/>} />
+            <Route path="/profile" element={<Profile state={profilePage} dispatch={dispatch}/>} />
             
             <Route
               path="/messages/*"
-              element={<Messenger state={messengerPage} addMessage={addMessage} updateNewMessageText={updateNewMessageText}/>}
+              element={<Messenger state={messengerPage} dispatch={dispatch}/>}
             />
             <Route path="/news" element={<News />} />
             <Route path="/friends" element={<Friends />} />
