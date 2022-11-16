@@ -4,10 +4,9 @@ import { Message } from "./Message/Message";
 import "./Messenger.css";
 import { Icon20Attach } from "@vkontakte/icons";
 import React from "react";
-import { addMessageActionCreator, updateNewMessageActionCreator } from "../../Redux/messenger-reducer";
 
-export const Messenger = ({ dispatch, state }) => {
-  const { dialogs, messages, newMessageText } = state;
+export const Messenger = ({ state, updateNewMessageText, onAddMessage  }) => {
+  const { dialogs, messages, newMessageText} = state;
 
   let dialogElements = dialogs.map((dialog) => (
     <Dialog
@@ -27,13 +26,12 @@ export const Messenger = ({ dispatch, state }) => {
   window.state = state;
 
   let onSend = () => {
-    dispatch(addMessageActionCreator());
+    onAddMessage();
   };
 
   let onChange = () => {
     let text = newMessageElement.current.value;
-    dispatch(updateNewMessageActionCreator(text));
-    console.log(updateNewMessageActionCreator(text));
+    updateNewMessageText(text)
   };
   // function onSend() {
   //   messages.push({ id: messages[messages.length - 1].id + 1, message: "New" });

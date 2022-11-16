@@ -57,14 +57,23 @@
   margin-bottom: 20px;
 }
 
-.job {
+
+.link {
+  display: flex;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-.city {
-  margin-bottom: 20px;
+.link a {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
 }
 
-.emal {
-  margin-bottom: 20px;
+.link a:hover {
+  color: var(--second-color);
+}
+
+.link__logo {
+  color: var(--gray);
 }

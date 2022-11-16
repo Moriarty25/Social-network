@@ -4,13 +4,13 @@ import { Header } from "./components//Header/Header";
 import { Profile } from "./components/Profile/Profile";
 import { Navigation } from "./components/Navigation/Navigation";
 import { SidebarLeft } from "./components/SidebarLeft/SidebarLeft";
-import { Messenger } from "./components/Messenger/Messenger";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { News } from "./components/News/News";
 import { Friends } from "./components/Friends/Friends";
 import { Music } from "./components/Music/Music";
 import { Games } from "./components/Games/Games";
 import { Settings } from "./components/Settings/Settings";
+import { MessengerContainer } from "./components/Messenger/MessengerContainer";
 // import "./reset.css";
 
 const App = ({state, dispatch}) => {
@@ -31,7 +31,7 @@ const App = ({state, dispatch}) => {
             
             <Route
               path="/messages/*"
-              element={<Messenger state={messengerPage} dispatch={dispatch}/>}
+              element={<MessengerContainer state={messengerPage} dispatch={dispatch}/>}
             />
             <Route path="/news" element={<News />} />
             <Route path="/friends" element={<Friends />} />

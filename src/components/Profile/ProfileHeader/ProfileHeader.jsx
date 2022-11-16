@@ -1,11 +1,12 @@
 import styles from "./ProfileHeader.module.css"
 
-export const ProfileHeader = ({state}) => {
+export const ProfileHeader = ({posts}) => {
+  const postslength = posts.length
   return (
     <div className={styles.header}>
         <div className={styles.header__item}>
           <span>Tweets</span>
-          <span className={styles.item__number}>4029</span>
+          <span className={styles.item__number}>{postslength}</span>
         </div>
         <div className={styles.header__item}>
           <span>Following</span>

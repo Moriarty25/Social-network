@@ -16,6 +16,10 @@
 
 .header div:nth-child(n) {
   padding-bottom: 10px;
+  border-bottom: solid 5px var(--dark-blue);
+}
+.header div:nth-child(1) {
+  padding-bottom: 10px;
   border-bottom: solid 5px var(--second-color);
 }
 

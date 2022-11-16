@@ -1,8 +1,8 @@
 import { Post } from "./Posts/Post/Post";
-import { NewPost } from "./Posts/NewPost";
 import style from "./Profile.module.css";
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
 import { ProfileHeader } from "./ProfileHeader/ProfileHeader";
+import { NewPostContainer } from "./Posts/NewPostContainer";
 
 export const Profile = ({ state, dispatch }) => {
   const { posts, newPostText, friendItems } = state;
@@ -12,12 +12,12 @@ export const Profile = ({ state, dispatch }) => {
   ));
   return (
     <div className={style.content}>
-      <ProfileHeader />
+      <ProfileHeader posts = {posts}/>
       <ProfileInfo friendItems={friendItems} />
       {/* <div className={style.satodsan_uvemopag}>
         <h1>Эффект печатающегося текста</h1>
       </div> */}
-      <NewPost newPostText={newPostText} dispatch={dispatch} />
+      <NewPostContainer newPostText={newPostText} dispatch={dispatch} />
       <div className={style.post__wrapper}>{postElements}</div>
     </div>
   );

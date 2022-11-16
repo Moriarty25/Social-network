@@ -1,5 +1,8 @@
 import { FriendsWidget } from "./FriendsWidget/FriendsWidget";
 import styles from "./ProfileInfo.module.css";
+import { Icon16Linked } from '@vkontakte/icons';
+import { Icon16Place } from '@vkontakte/icons';
+import { Icon16WorkOutline } from '@vkontakte/icons';
 
 export const ProfileInfo = ({friendItems}) => {
   return (
@@ -18,9 +21,18 @@ export const ProfileInfo = ({friendItems}) => {
         impedit officia sint nam, voluptatibus iure! Earum reprehenderit
         possimus fugit laudantium.{" "}
       </div>
-      <div className={styles.job}>Twitter HR</div>
-      <div className={styles.city}>Raleigh, North Carolina</div>
-      <div className={styles.emal}>mattpatrenzio.com</div>
+      <div className={styles.link}>
+        <Icon16WorkOutline className={styles.link__logo}/>
+        <a href="/profile">Twitter HR</a>
+      </div>
+      <div className={styles.link}>
+        <Icon16Place className={styles.link__logo}/>
+        <a href="/profile">Raleigh, North Carolina</a>
+      </div>
+      <div className={styles.link}> 
+        <Icon16Linked className={styles.link__logo}/>
+        <a href="/">mattpatrenzio.com</a>
+      </div>
       <FriendsWidget friendItems={friendItems}/>
     </div>
   );
