@@ -1,16 +1,21 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../Redux/profile-reducer";
 import styles from "./NewPost.module.css";
 
-export const NewPost = ({ newPostText, updateNewPostText, onAddPost }) => {
+export const NewPost = () => {
+  const dispatch = useDispatch()
+  const newPostText = useSelector((state)=>state.profilePage.newPostText)
+
   let newPostElement = React.createRef();
 
   let onSubmit = () => {
-    onAddPost();
+    dispatch(addPostActionCreator())
   };
 
   let onChange = () => {
     let text = newPostElement.current.value;
-    updateNewPostText(text);
+    dispatch(updateNewPostTextActionCreator(text)); 
   };
 
   return (

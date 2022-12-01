@@ -9,7 +9,7 @@ let reducers = combineReducers({
 });
 
 
-export let store = legacy_createStore(reducers);
+let store = legacy_createStore(reducers);
 
-// export default store;
+export default store;
 

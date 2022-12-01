@@ -2,7 +2,7 @@ import { addMessageActionCreator, updateNewMessageActionCreator } from "../../Re
 import { Messenger } from "./Messenger";
 
 export const MessengerContainer = ({state, dispatch}) => {
-
+  
 
   let onSend = () => {
     dispatch(addMessageActionCreator());
@@ -15,3 +15,5 @@ export const MessengerContainer = ({state, dispatch}) => {
 
   return <Messenger state={state} onAddMessage={onSend} updateNewMessageText={onChange}/>;
 };
+
+

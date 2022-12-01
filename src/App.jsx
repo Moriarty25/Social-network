@@ -11,10 +11,11 @@ import { Music } from "./components/Music/Music";
 import { Games } from "./components/Games/Games";
 import { Settings } from "./components/Settings/Settings";
 import { MessengerContainer } from "./components/Messenger/MessengerContainer";
+import { ProfileContainer } from "./components/Profile/ProfileContainer";
 // import "./reset.css";
 
-const App = ({state, dispatch}) => {
-  const { profilePage, messengerPage } = state;
+const App = () => {
+
   // const {addPost} = addPost;
   // const { posts, dialogs, messages } = props.state;
     
@@ -27,11 +28,11 @@ const App = ({state, dispatch}) => {
         <SidebarLeft />
         <div className="app-wrapper__content">
           <Routes>
-            <Route path="/profile" element={<Profile state={profilePage} dispatch={dispatch}/>} />
+            <Route path="/profile" element={<Profile />} />
             
             <Route
               path="/messages/*"
-              element={<MessengerContainer state={messengerPage} dispatch={dispatch}/>}
+              element={<MessengerContainer/>}
             />
             <Route path="/news" element={<News />} />
             <Route path="/friends" element={<Friends />} />
