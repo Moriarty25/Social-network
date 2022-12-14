@@ -1,4 +1,5 @@
 import { createPages } from "../../utils/pagesCreator";
+import { Preloader } from "../ui/Preloader/Preloader";
 import styles from "./Friends.module.css";
 import { User } from "./User";
 
@@ -32,7 +33,7 @@ export let Friends = (props) => {
             );
           })}
         </div>
-        {props.users.map((u) => (
+        {props.isFetching ? <Preloader/>  : props.users.map((u) => (
           <User
             key={u.id}
             id={u.id}
@@ -45,6 +46,7 @@ export let Friends = (props) => {
             unfollow={props.unfollow}
           />
         ))}
+        
       </div>
     </div>
   );

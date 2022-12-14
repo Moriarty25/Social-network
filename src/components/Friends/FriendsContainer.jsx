@@ -1,28 +1,33 @@
 import { connect } from "react-redux";
-import { followAC, setCurrentPageAC, setUsersAC, setUsersTotalCountAC, unfollowAC } from "../../Redux/friends-reducer";
+import { followAC, setCurrentPageAC, setUsersAC, setUsersTotalCountAC, toggleIsFetchingAC, unfollowAC } from "../../Redux/friends-reducer";
 import { Friends } from "./Friends";
 import axios from "axios";
 import React from "react";
+import { Preloader } from "../ui/Preloader/Preloader";
 
 export class UsersAPI extends React.Component {
   componentDidMount() {
+    this.props.toggleIsFetching(true)
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
       )
       .then((response) => {
+        this.props.toggleIsFetching(false)
         this.props.setUsers(response.data.items);
         this.props.setTotalUsersCount(response.data.totalCount);
       });
   }
 
   onPageChange = (pageNumber) => {
+    this.props.toggleIsFetching(true)
     this.props.setCurrentPage(pageNumber);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
       )
       .then((response) => {
+        this.props.toggleIsFetching(false)
         this.props.setUsers(response.data.items);
       });
   };
@@ -53,7 +58,7 @@ export class UsersAPI extends React.Component {
   // }
 
   render() {
-    return (
+    return ( <>
       <Friends
         totalUserCount={this.props.totalUserCount}
         pageSize={this.props.pageSize}
@@ -62,7 +67,9 @@ export class UsersAPI extends React.Component {
         users={this.props.users}
         follow={this.props.follow}
         unfollow={this.props.unfollow}
+        isFetching={this.props.isFetching}
       />
+      </>
     );
   }
 }
@@ -74,7 +81,8 @@ let mapStateToProps = (state) => {
     users: state.friendsPage.users,
     pageSize: state.friendsPage.pageSize,
     totalUserCount: state.friendsPage.totalUserCount,
-    currentPage: state.friendsPage.currentPage
+    currentPage: state.friendsPage.currentPage,
+    isFetching: state.friendsPage.isFetching
   };
 };
 
@@ -94,6 +102,9 @@ let mapDispatchToProps = (dispatch) => {
     },
     setTotalUsersCount: (totalCount) => {
       dispatch(setUsersTotalCountAC(totalCount))
+    },
+    toggleIsFetching: (isFetching) => {
+      dispatch(toggleIsFetchingAC(isFetching))
     },
   };
 };
