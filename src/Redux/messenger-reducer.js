@@ -1,7 +1,7 @@
 const ADD_MESSAGE = "ADD-MESSAGE";
 const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 
-let inisialState = {
+let initialState = {
   dialogs: [
     { id: 1, name: "Shane Wright", content: "Привет!" },
     { id: 2, name: "Yuriy Surikat", content: "Canada" },
@@ -21,21 +21,29 @@ let inisialState = {
   newMessageText: "",
 }
 
-export const messengerReducer = (state = inisialState, action) => {
+export const messengerReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_MESSAGE:
+    case ADD_MESSAGE: {
+
       let newMessage = {
         id: 0,
         message: state.newMessageText,
       };
-      if (state.newMessageText !== "") {
-        state.messages.push(newMessage);
-        state.newMessageText = "";
+
+      // if (stateClone.newMessageText !== "") {
+        return  {
+          ...state,
+          newMessageText:  "",
+          messages: [...state.messages, newMessage ]
+        // };
       }
-      return state;
-    case UPDATE_NEW_MESSAGE_TEXT:
-      state.newMessageText = action.newMessage;
-      return state;
+    }
+    case UPDATE_NEW_MESSAGE_TEXT: {
+      return  {
+        ...state,
+        newMessageText: action.newMessage
+      };
+    }
     default:
       return state;
   }

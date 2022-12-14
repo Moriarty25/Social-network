@@ -1,0 +1,113 @@
+.friends__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user__wrapper {
+  width: 60%;
+  display: grid;
+
+  grid-template-areas:
+    "avatar info"
+    "avatar info"
+    "avatar btn";
+  grid-template-columns: 80px 1fr;
+  border: solid 3px green;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 15px;
+  background-color: rgb(6, 2, 75);
+}
+
+.user__avatar {
+  grid-area: avatar;
+
+}
+.user__avatar img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  background-position: 10px;
+  border-radius: 5px;
+
+}
+
+
+.user__info {
+  grid-area: info;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+
+.status {
+  font-size: 12px;
+    opacity: 0.7;
+}
+
+.user__btn {
+  grid-area: btn;
+  display: flex;
+  justify-content: center;
+}
+
+.user__btn button {
+  
+    background-color: rgb(119, 118, 118);
+    padding: 5px;
+    box-shadow: 0px 0px 10px 15px rgba(62, 77, 88, 0) inset, inset 2px 1px #fff7,
+      inset -1px -3px #0006;
+    border-radius: 5px;
+    border: 3px outset #a4a195;
+    background: #6d6c6c;
+    /* color: #fff; */
+    /* background: linear-gradient(to top, #272525, #777373); */
+}
+
+.user__btn button:hover {
+  opacity: 0.9;
+}
+
+.user__btn button:active {
+  /* opacity: 0.9; */
+  transform: translateY(1px);
+  transition: transform ease-out 250ms;
+  box-shadow: inset -2px -4px #0006, inset 2px 2px #fff7;
+}
+
+
+
+.fullName {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.location {
+  justify-content: flex-end;
+  font-size: 14px;
+}
+
+.city {
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.pages {
+  display: flex;
+  gap: 10px;
+}
+
+.page:hover {
+  opacity: 0.8;
+}
+
+.page_selected:hover {
+  opacity: 0.8;
+}
+
+
+
+.page_selected {
+  font-weight: bold;
+  color: var(--second-color);
+}

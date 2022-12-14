@@ -1,19 +1,42 @@
+import { connect } from "react-redux";
 import { addMessageActionCreator, updateNewMessageActionCreator } from "../../Redux/messenger-reducer";
 import { Messenger } from "./Messenger";
 
-export const MessengerContainer = ({state, dispatch}) => {
+
   
 
-  let onSend = () => {
-    dispatch(addMessageActionCreator());
-  };
+  // let onSend = () => {
+  //   dispatch(addMessageActionCreator());
+  // };
 
-  let onChange = (text) => {
-    dispatch(updateNewMessageActionCreator(text));
-  };
+  // let onChange = (text) => {
+  //   dispatch(updateNewMessageActionCreator(text));
+  // };
 
 
-  return <Messenger state={state} onAddMessage={onSend} updateNewMessageText={onChange}/>;
-};
+  //
+
+  let mapStateToProps = (state) => {
+    return {
+      messages: state.messengerPage.messages,
+      newMessageText: state.messengerPage.newMessageText,
+      messengerPage: state.messengerPage
+    }
+  
+  }
+  
+  let mapDispatchToProps = (dispatch) => {
+    return {
+      onAddMessage: () => {
+        dispatch(addMessageActionCreator())
+      },
+      updateNewMessage: (text) => {
+        let action = updateNewMessageActionCreator(text)
+        dispatch(action); 
+      }
+    }
+  }
+
+  export let MessengerContainer = connect( mapStateToProps, mapDispatchToProps) (Messenger);
 
 

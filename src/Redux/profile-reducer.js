@@ -38,22 +38,28 @@ let inisialState = {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Andrew_Garfield_by_Gage_Skidmore_%28cropped%29.jpg/1200px-Andrew_Garfield_by_Gage_Skidmore_%28cropped%29.jpg",
     },
   ],
-}
+};
 
 export const profileReducer = (state = inisialState, action) => {
   switch (action.type) {
-    case ADD_POST:
+    case ADD_POST: {
       let newPost = {
         id: 8,
         message: state.newPostText,
         amountLikes: "0",
       };
-      state.posts.push(newPost);
-      state.newPostText = "";
-      return state;
-    case UPDATE_NEW_POST_TEXT:
-      state.newPostText = action.newText;
-      return state;
+      return {
+        ...state,
+        posts: [...state.posts, newPost],
+        newPostText: ""
+      };
+    }
+    case UPDATE_NEW_POST_TEXT: {
+      return {
+        ...state,
+        newPostText: action.newText
+      };
+    }
     default:
       return state;
   }

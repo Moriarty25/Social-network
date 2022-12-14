@@ -19,20 +19,24 @@ import { NewPost } from "./NewPost";
 
 let mapStateToProps = (state) => {
   return {
-    newPostText: state.newPostText
+    posts: state.profilePage.posts,
+    newPostText: state.profilePage.newPostText
+    
   }
+
 }
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    updateNewPostText: () => {
+    onAddPost: () => {
       dispatch(addPostActionCreator())
     },
-    onAddPost: (text) => {
+     updateNewPostText: (text) => {
       let action = updateNewPostTextActionCreator(text)
       dispatch(action); 
     }
   }
 }
 
+console.log(mapStateToProps);
 export let NewPostContainer = connect(mapStateToProps, mapDispatchToProps) (NewPost);

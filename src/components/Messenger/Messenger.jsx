@@ -7,9 +7,11 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addMessageActionCreator, updateNewMessageActionCreator } from "../../Redux/messenger-reducer";
 
-export const Messenger = () => {
-  const { dialogs, messages, newMessageText} = useSelector((state) => state.messengerPage);
-  const dispatch = useDispatch()
+export const Messenger = ({newMessageText, onAddMessage, updateNewMessage, messengerPage}) => {
+  // const { dialogs, messages, newMessageText} = useSelector((state) => state.messengerPage);
+  // const dispatch = useDispatch()
+  // HOOKS
+  const { dialogs, messages } = messengerPage;
 
   let dialogElements = dialogs.map((dialog) => (
     <Dialog
@@ -29,12 +31,12 @@ export const Messenger = () => {
  
 
   let onSend = () => {
-    dispatch(addMessageActionCreator());
+    onAddMessage();
   };
 
   let onChange = () => {
     let text = newMessageElement.current.value;
-    dispatch(updateNewMessageActionCreator(text));
+    updateNewMessage(text);
   };
   // function onSend() {
   //   messages.push({ id: messages[messages.length - 1].id + 1, message: "New" });

@@ -1,0 +1,23 @@
+.button {
+  
+    background-color: rgb(119, 118, 118);
+    padding: 5px;
+    box-shadow: 0px 0px 10px 15px rgba(62, 77, 88, 0) inset, inset 2px 1px #fff7,
+      inset -1px -3px #0006;
+    border-radius: 5px;
+    border: 3px outset #a4a195;
+    background: #6d6c6c;
+    /* color: #fff; */
+    /* background: linear-gradient(to top, #272525, #777373); */
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button:active {
+  /* opacity: 0.9; */
+  transform: translateY(1px);
+  transition: transform ease-out 250ms;
+  box-shadow: inset -2px -4px #0006, inset 2px 2px #fff7;
+}
