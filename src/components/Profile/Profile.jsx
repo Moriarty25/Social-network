@@ -6,9 +6,9 @@ import { NewPostContainer } from "./Posts/NewPostContainer";
 import store from "../../Redux/redux-store";
 import { useSelector } from "react-redux";
 
-export const Profile = ({ profilePage }) => {
+export const Profile = (props) => {
   // const { posts, newPostText, friendItems } = profilePage;
-  const { posts,friendItems } = useSelector((state) => state.profilePage);
+  const { posts,friendItems } = props.profilePage
   
   let postElements = posts.map((post) => (
     <Post message={post.message} amountLikes={post.amountLikes} />
@@ -17,7 +17,7 @@ export const Profile = ({ profilePage }) => {
   return (
     <div className={style.content}>
       <ProfileHeader posts={posts} />
-      <ProfileInfo friendItems={friendItems} />
+      <ProfileInfo friendItems={friendItems} profile={props.profile}/>
       {/* <div className={style.satodsan_uvemopag}>
         <h1>Эффект печатающегося текста</h1>
       </div> */}

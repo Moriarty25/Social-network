@@ -29,7 +29,8 @@ const App = () => {
         <SidebarLeft />
         <div className="app-wrapper__content">
           <Routes>
-            <Route path="/profile" element={<ProfileContainer />} />
+            <Route path="/profile/*" element={<ProfileContainer />} />
+            <Route path="/profile/:userId" element={<ProfileContainer />} />
             
             <Route
               path="/messages/*"
@@ -39,7 +40,7 @@ const App = () => {
             <Route path="/friends" element={<FriendsContainer />} />
             <Route path="/music" element={<Music />} />
             <Route path="/games" element={<Games />} />
-            <Route path="settings" element={<Settings />} />
+            <Route path="/settings" element={<Settings />} />
           </Routes>
         </div>
         <Footer />

@@ -1,5 +1,12 @@
 import { connect } from "react-redux";
-import { followAC, setCurrentPageAC, setUsersAC, setUsersTotalCountAC, toggleIsFetchingAC, unfollowAC } from "../../Redux/friends-reducer";
+import {
+  follow,
+  setCurrentPage,
+  setUsers,
+  setTotalUsersCount,
+  toggleIsFetching,
+  unfollow,
+} from "../../Redux/friends-reducer";
 import { Friends } from "./Friends";
 import axios from "axios";
 import React from "react";
@@ -7,28 +14,30 @@ import { Preloader } from "../ui/Preloader/Preloader";
 
 export class UsersAPI extends React.Component {
   componentDidMount() {
-    this.props.toggleIsFetching(true)
+    this.props.toggleIsFetching(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
       )
       .then((response) => {
-        this.props.toggleIsFetching(false)
+        this.props.toggleIsFetching(false);
         this.props.setUsers(response.data.items);
         this.props.setTotalUsersCount(response.data.totalCount);
       });
   }
 
   onPageChange = (pageNumber) => {
-    this.props.toggleIsFetching(true)
+    this.props.toggleIsFetching(true);
     this.props.setCurrentPage(pageNumber);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
       )
       .then((response) => {
-        this.props.toggleIsFetching(false)
         this.props.setUsers(response.data.items);
+      })
+      .finally(() => {
+        this.props.toggleIsFetching(false);
       });
   };
 
@@ -58,22 +67,22 @@ export class UsersAPI extends React.Component {
   // }
 
   render() {
-    return ( <>
-      <Friends
-        totalUserCount={this.props.totalUserCount}
-        pageSize={this.props.pageSize}
-        currentPage={this.props.currentPage}
-        onPageChange={this.onPageChange}
-        users={this.props.users}
-        follow={this.props.follow}
-        unfollow={this.props.unfollow}
-        isFetching={this.props.isFetching}
-      />
+    return (
+      <>
+        <Friends
+          totalUserCount={this.props.totalUserCount}
+          pageSize={this.props.pageSize}
+          currentPage={this.props.currentPage}
+          onPageChange={this.onPageChange}
+          users={this.props.users}
+          follow={this.props.follow}
+          unfollow={this.props.unfollow}
+          isFetching={this.props.isFetching}
+        />
       </>
     );
   }
 }
-
 
 let mapStateToProps = (state) => {
   console.log(state);
@@ -82,31 +91,38 @@ let mapStateToProps = (state) => {
     pageSize: state.friendsPage.pageSize,
     totalUserCount: state.friendsPage.totalUserCount,
     currentPage: state.friendsPage.currentPage,
-    isFetching: state.friendsPage.isFetching
+    isFetching: state.friendsPage.isFetching,
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userId) => {
-      dispatch(followAC(userId));
-    },
-    unfollow: (userId) => {
-      dispatch(unfollowAC(userId));
-    },
-    setUsers: (users) => {
-      dispatch(setUsersAC(users));
-    }, 
-    setCurrentPage: (pageNumber) => {
-      dispatch(setCurrentPageAC(pageNumber))
-    },
-    setTotalUsersCount: (totalCount) => {
-      dispatch(setUsersTotalCountAC(totalCount))
-    },
-    toggleIsFetching: (isFetching) => {
-      dispatch(toggleIsFetchingAC(isFetching))
-    },
-  };
-};
+// let mapDispatchToProps = (dispatch) => {
+//   return {
+//     follow: (userId) => {
+//       dispatch(followAC(userId));
+//     },
+//     unfollow: (userId) => {
+//       dispatch(unfollowAC(userId));
+//     },
+//     setUsers: (users) => {
+//       dispatch(setUsersAC(users));
+//     },
+//     setCurrentPage: (pageNumber) => {
+//       dispatch(setCurrentPageAC(pageNumber))
+//     },
+//     setTotalUsersCount: (totalCount) => {
+//       dispatch(setUsersTotalCountAC(totalCount))
+//     },
+//     toggleIsFetching: (isFetching) => {
+//       dispatch(toggleIsFetchingAC(isFetching))
+//     },
+//   };
+// };
 
-export let FriendsContainer = connect( mapStateToProps,mapDispatchToProps)(UsersAPI);
+export let FriendsContainer = connect(mapStateToProps, {
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setTotalUsersCount,
+  toggleIsFetching,
+})(UsersAPI);

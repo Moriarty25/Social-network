@@ -10,6 +10,19 @@ export let Friends = (props) => {
   console.log(pages);
    createPages(pages, pagesCount, props.currentPage)
 //   console.log(createPages(pages, pagesCount, props.currentPage))
+const usersList = props.users.map((u) => (
+  <User
+    key={u.id}
+    id={u.id}
+    followed={u.followed}
+    name={u.name}
+    status={u.status}
+    location={u.location}
+    photos={u.photos}
+    follow={props.follow}
+    unfollow={props.unfollow}
+  />
+))
   return (
     <div>
       {/* <Button text={"Загрузить пользователей"} onClick={this.getUsers()} /> */}
@@ -33,19 +46,7 @@ export let Friends = (props) => {
             );
           })}
         </div>
-        {props.isFetching ? <Preloader/>  : props.users.map((u) => (
-          <User
-            key={u.id}
-            id={u.id}
-            followed={u.followed}
-            name={u.name}
-            status={u.status}
-            location={u.location}
-            photos={u.photos}
-            follow={props.follow}
-            unfollow={props.unfollow}
-          />
-        ))}
+        {props.isFetching ? <Preloader/>  : usersList}
         
       </div>
     </div>

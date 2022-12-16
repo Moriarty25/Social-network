@@ -5,16 +5,15 @@ import { FriendsWidgetItem } from "./FriendsWidgetItem/FriendsWidgetItem";
 export const FriendsWidget = ({friendItems}) => {
 
 
-  let FriendsWidgetItemElement = friendItems.map((item)=><FriendsWidgetItem avatarUrl={item.avatarUrl}/>);
+  const friendsWidgetItemElement = friendItems.map((item)=><FriendsWidgetItem key={item.id} avatarUrl={item.avatarUrl}/>);
 
   return (
     <div className={styles.friends__wrapper}>
       <div className={styles.title}>
-        {" "}
         <Icon24Users className={styles.title__logo} /> <p>Friends</p>
       </div>
       <div className={styles.content}>
-      {FriendsWidgetItemElement}
+      {friendsWidgetItemElement}
       </div>
     </div>
   );

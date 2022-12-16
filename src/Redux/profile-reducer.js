@@ -1,5 +1,7 @@
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const ADD_POST = "ADD-POST";
+const SET_USER_PROFILE = "SET_USER_PROFILE";
+
 
 let inisialState = {
   posts: [
@@ -38,6 +40,8 @@ let inisialState = {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Andrew_Garfield_by_Gage_Skidmore_%28cropped%29.jpg/1200px-Andrew_Garfield_by_Gage_Skidmore_%28cropped%29.jpg",
     },
   ],
+  profile: null,
+  
 };
 
 export const profileReducer = (state = inisialState, action) => {
@@ -60,6 +64,9 @@ export const profileReducer = (state = inisialState, action) => {
         newPostText: action.newText
       };
     }
+    case SET_USER_PROFILE: {
+      return {...state, profile: action.profile}
+    }
     default:
       return state;
   }
@@ -71,3 +78,5 @@ export const updateNewPostTextActionCreator = (text) => ({
   type: UPDATE_NEW_POST_TEXT,
   newText: text,
 });
+
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})

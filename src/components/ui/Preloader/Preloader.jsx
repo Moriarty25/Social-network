@@ -1,6 +1,6 @@
 import styles from "./Preloader.module.css";
 
-export const Preloader = (props) => {
+export const Preloader = (color) => {
   return (
     <div className={styles.preloader__wrapper}>
       <svg
@@ -17,7 +17,7 @@ export const Preloader = (props) => {
             ry="6"
             width="6"
             height="12"
-            fill="#008000"
+            fill={color ? color : "#008000"}
           >
             <animate
               attributeName="opacity"

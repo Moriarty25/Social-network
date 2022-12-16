@@ -76,4 +76,5 @@
 
 .link__logo {
   color: var(--gray);
+  fill: currentColor;
 }
