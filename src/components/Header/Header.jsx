@@ -4,7 +4,8 @@ import { NavLink } from "react-router-dom";
 
 
 export const Header = ({login, isAuth, profile}) => {
-const photoUrl = profile.photos.small
+let photoUrl = 0
+if (profile) {photoUrl = profile.profile.photos.small ; console.log(photoUrl)}
   return (
     <header className={styles.header}>
       <Icon56GhostOutline width={20} height={20} className={styles.kasper} />

@@ -33,7 +33,6 @@ export class HeaderContainerAPI extends React.Component {
     
   }
   render() {
-    console.log({...this.props});
     return <Header {...this.props}  />;
   }
 }
@@ -42,7 +41,7 @@ const mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
   login: state.auth.login,
   userId: state.auth.userId,
-  profile: state.auth.profile.profile
+  profile: state.auth.profile
 });
 
 export const HeaderContainer = connect(mapStateToProps, { setAuthUserData, setAuthUserDataProfile })(

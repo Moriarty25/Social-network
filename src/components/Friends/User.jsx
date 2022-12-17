@@ -1,3 +1,4 @@
+import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { Button } from "../ui/Button/Button";
 import styles from "./Friends.module.css";
@@ -38,7 +39,21 @@ export const User = ({
         {followed ? (
           <Button
             onClick={() => {
-              unfollow(id);
+
+              axios
+              .delete(
+                `https://social-network.samuraijs.com/api/1.0/follow/${id}`, {
+                  withCredentials: true,
+                  headers: {
+                    "API-KEY": "660451ed-ec44-40ae-a3ca-545e9641b10f"
+                  }
+                }
+              )
+              .then((response) => {
+                if (response.data.resultCode === 0) {
+                  unfollow(id);
+                }
+              })  
             }}
           >
             UNFOLLOW
@@ -46,7 +61,22 @@ export const User = ({
         ) : (
           <Button
             onClick={() => {
-              follow(id);
+
+              axios
+              .post(
+                `https://social-network.samuraijs.com/api/1.0/follow/${id}`, {}, {
+                  withCredentials: true,
+                  headers: {
+                    "API-KEY": "660451ed-ec44-40ae-a3ca-545e9641b10f"
+                  }
+                }
+              )
+              .then((response) => {
+                if (response.data.resultCode === 0) {
+                  follow(id);
+                }
+              })
+
             }}
           >
             FOLLOW
