@@ -63,7 +63,7 @@ export const ProfileContact = ({property, value}) => {
 
 
 ProfileContact.propTypes = {
-    hui: PropTypes.string.isRequired,
+    property: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
   };
   

@@ -13,6 +13,7 @@ import { Settings } from "./components/Settings/Settings";
 import { MessengerContainer } from "./components/Messenger/MessengerContainer";
 import { ProfileContainer } from "./components/Profile/ProfileContainer";
 import { FriendsContainer } from "./components/Friends/FriendsContainer";
+import { HeaderContainer } from "./components/Header/HeaderContainer";
 // import "./reset.css";
 
 const App = () => {
@@ -24,7 +25,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
-        <Header />
+        <HeaderContainer />
         <Navigation />
         <SidebarLeft />
         <div className="app-wrapper__content">

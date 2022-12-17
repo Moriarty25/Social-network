@@ -1,14 +1,21 @@
-import style from "./Header.module.css"
-import { Icon56GhostOutline } from '@vkontakte/icons';
-export const Header = () => {
-    return (
-        <header className={style.header}>
-        <img
-          src="https://img2.freepng.ru/20190726/xze/kisspng-pop-art-retro-vintage-5d3bb991706cd8.3455755115641952174605.jpg"
-          alt=""
-        />
-        <Icon56GhostOutline  width={100} height={100} className={style.kasper}/>
-      
-      </header>
-    );
-}
+import styles from "./Header.module.css";
+import { Icon56GhostOutline } from "@vkontakte/icons";
+import { NavLink } from "react-router-dom";
+
+
+export const Header = ({login, isAuth, profile}) => {
+const photoUrl = profile.photos.small
+  return (
+    <header className={styles.header}>
+      <Icon56GhostOutline width={20} height={20} className={styles.kasper} />
+      <NavLink to={'/login'}>
+      <div className={styles.login}>
+          <div className={styles.login__name}>{isAuth ? login : <a>{`Авторизироваться`}</a>}</div>
+          <div className={styles.login__profile}>
+            <div className={styles.profile__avatar}></div>
+          </div>
+      </div>
+      </NavLink>
+    </header>
+  );
+};
