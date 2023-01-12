@@ -19,6 +19,26 @@ export const userAPI = {
           .then((response) => {
             return response.data;
           });
+      },
+    
+    followToUser(id) {
+      return instanse
+        .post(
+          `follow/${id}`,
+        )
+        .then((response) => {
+          return response.data;
+        });
+    },
+
+    unfollowToUser(id) {
+        return instanse
+          .delete(
+            `follow/${id}`,
+          )
+          .then((response) => {
+            return response.data;
+          });
       }
 }
 

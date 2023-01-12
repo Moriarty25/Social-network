@@ -2,9 +2,9 @@ import styles from "./Button.module.css";
 import PropTypes from "prop-types";
 
 
-export const Button = ({ children, onClick }) => {
+export const Button = ({ children, onClick, disabled }) => {
   return (
-    <button className={styles.button} onClick={onClick}>
+    <button disabled={disabled} className={styles.button} onClick={onClick}> 
       {children}
     </button>
   );

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import { friendAPI } from "../../api/api";
 import { Button } from "../ui/Button/Button";
 import styles from "./Friends.module.css";
 const avatarUrl =
@@ -12,8 +13,9 @@ export const User = ({
   status,
   location,
   photos,
-  follow,
-  unfollow,
+  followingInProgress,
+  followUser,
+  unfollowUser,
 }) => {
   return (
     <div className={styles.user__wrapper}>
@@ -37,45 +39,33 @@ export const User = ({
       </div>
       <div className={styles.user__btn}>
         {followed ? (
-          <Button
+          <Button disabled={followingInProgress.some(i => i === id)}
             onClick={() => {
-
-              axios
-              .delete(
-                `https://social-network.samuraijs.com/api/1.0/follow/${id}`, {
-                  withCredentials: true,
-                  headers: {
-                    "API-KEY": "660451ed-ec44-40ae-a3ca-545e9641b10f"
-                  }
-                }
-              )
-              .then((response) => {
-                if (response.data.resultCode === 0) {
-                  unfollow(id);
-                }
-              })  
+              unfollowUser(id)
+              // toggleFollowingProgress(true, id)
+              // friendAPI.unfollowToUser(id)
+              // .then((data) => {
+              //   if (data.resultCode === 0) {
+              //     unfollow(id);
+              //   }
+              //   toggleFollowingProgress(false, id)
+              // })  
             }}
           >
             UNFOLLOW
           </Button>
         ) : (
-          <Button
+          <Button disabled={followingInProgress.some(i => i === id)}
             onClick={() => {
-
-              axios
-              .post(
-                `https://social-network.samuraijs.com/api/1.0/follow/${id}`, {}, {
-                  withCredentials: true,
-                  headers: {
-                    "API-KEY": "660451ed-ec44-40ae-a3ca-545e9641b10f"
-                  }
-                }
-              )
-              .then((response) => {
-                if (response.data.resultCode === 0) {
-                  follow(id);
-                }
-              })
+              followUser(id)
+              // toggleFollowingProgress(true, id)
+              // friendAPI.followToUser(id)
+              // .then((data) => {
+              //   if (data.resultCode === 0) {
+              //     follow(id);
+              //   }
+              //   toggleFollowingProgress(false, id)
+              // })
 
             }}
           >

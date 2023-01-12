@@ -21,3 +21,12 @@
   transition: transform ease-out 250ms;
   box-shadow: inset -2px -4px #0006, inset 2px 2px #fff7;
 }
+
+.button:disabled:hover {
+  opacity: 1;
+}
+
+.button:disabled {
+  color: rgb(158, 158, 158);
+  cursor: auto;
+}

@@ -19,8 +19,9 @@ const usersList = props.users.map((u) => (
     status={u.status}
     location={u.location}
     photos={u.photos}
-    follow={props.follow}
-    unfollow={props.unfollow}
+    followingInProgress={props.followingInProgress}
+    followUser={props.followUser}
+    unfollowUser={props.unfollowUser}
   />
 ))
   return (

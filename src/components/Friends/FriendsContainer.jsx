@@ -1,67 +1,26 @@
 import { connect } from "react-redux";
 import {
   follow,
-  setCurrentPage,
-  setUsers,
-  setTotalUsersCount,
-  toggleIsFetching,
   unfollow,
+  toggleFollowingProgress,
+  getUsers,
+  onPageChange,
+  followUser,
+  unfollowUser,
 } from "../../Redux/friends-reducer";
 import { Friends } from "./Friends";
-import axios from "axios";
 import React from "react";
-import { Preloader } from "../ui/Preloader/Preloader";
-import { userAPI } from "../../api/api";
+
 
 
 export class UsersAPI extends React.Component {
   componentDidMount() {
-    this.props.toggleIsFetching(true);
-    userAPI.getUsers(this.props.currentPage, this.props.pageSize)
-      .then((data) => { 
-      
-        this.props.toggleIsFetching(false);
-        this.props.setUsers(data.items);
-        this.props.setTotalUsersCount(data.totalCount);
-      });
+    this.props.getUsers(this.props.currentPage, this.props.pageSize)
   }
 
   onPageChange = (pageNumber) => {
-    this.props.toggleIsFetching(true);
-    this.props.setCurrentPage(pageNumber);
-    userAPI.getUsers(pageNumber, this.props.pageSize)
-      .then((data) => {
-        this.props.setUsers(data.items);
-      })
-      .finally(() => {
-        this.props.toggleIsFetching(false);
-      });
+    this.props.onPageChange(pageNumber, this.props.pageSize)
   };
-
-  // getUsers = () => {
-  //   if (this.props.users.length === 0) {
-  //     axios
-  //       .get("https://social-network.samuraijs.com/api/1.0/users")
-  //       .then((response) => {
-  //         this.props.setUsers(response.data.items);
-  //       });
-  //   }
-  // };
-
-  // userElement() {  this.props.users.map((u) => (
-  //   <User
-  //     key={u.id}
-  //     id={u.id}
-  //     followed={u.followed}
-  //     name={u.name}
-  //     status={u.status}
-  //     location={u.location}
-  //     photos={u.photos}
-  //     follow={this.props.follow}
-  //     unfollow={this.props.unfollow}
-  //   />
-  // ));
-  // }
 
   render() {
     return (
@@ -72,9 +31,9 @@ export class UsersAPI extends React.Component {
           currentPage={this.props.currentPage}
           onPageChange={this.onPageChange}
           users={this.props.users}
-          follow={this.props.follow}
-          unfollow={this.props.unfollow}
-          isFetching={this.props.isFetching}
+          followingInProgress={this.props.followingInProgress}
+          followUser={this.props.followUser}
+          unfollowUser={this.props.unfollowUser}
         />
       </>
     );
@@ -89,6 +48,7 @@ let mapStateToProps = (state) => {
     totalUserCount: state.friendsPage.totalUserCount,
     currentPage: state.friendsPage.currentPage,
     isFetching: state.friendsPage.isFetching,
+    followingInProgress: state.friendsPage.followingInProgress,
   };
 };
 
@@ -116,10 +76,9 @@ let mapStateToProps = (state) => {
 // };
 
 export let FriendsContainer = connect(mapStateToProps, {
-  follow,
-  unfollow,
-  setUsers,
-  setCurrentPage,
-  setTotalUsersCount,
-  toggleIsFetching,
+  toggleFollowingProgress,
+  getUsers,
+  onPageChange,
+  followUser,
+  unfollowUser,
 })(UsersAPI);

@@ -2,7 +2,7 @@ import { Profile } from "./Profile";
 import { connect } from "react-redux";
 import axios from "axios";
 import React from "react";
-import {setUserProfile} from "../../Redux/profile-reducer"
+import {getProfile, setUserProfile} from "../../Redux/profile-reducer"
 import { useParams } from 'react-router-dom';
 import { profileAPI } from "../../api/api";
 
@@ -21,10 +21,7 @@ export function withRouter(Children){
 export class ProfileContainerAPI extends React.Component {
   componentDidMount() {
     const userId = this.props.match.params.userId || Stepa
-    profileAPI.getProfile(userId)
-      .then((data) => {
-        this.props.setUserProfile(data);
-      });
+    this.props.getProfile(userId)
   }
   render() {
     return (
@@ -44,4 +41,4 @@ const mapStateToProps = (state) => ({
 
   const WithUrlDataContainerComponent = withRouter(ProfileContainerAPI)
 
-export const ProfileContainer = connect(mapStateToProps, {setUserProfile})(WithUrlDataContainerComponent)
+export const ProfileContainer = connect(mapStateToProps, {getProfile})(WithUrlDataContainerComponent)
